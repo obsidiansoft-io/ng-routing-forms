@@ -2,22 +2,23 @@
 <hr>
 
 <ul class="list-group">
-  <li
+  <li *ngFor="let item of templateMenu"
     class="list-group-item"
-    routerLink="template/basicos"
+    [routerLink]="[item.ruta]"
+    routerLinkActive="active"
   >
-    Básicos
+    {{ item.texto }}
   </li>
-  <li
+</ul>
+
+<h3>Reactive</h3>
+<hr>
+<ul class="list-group">
+  <li *ngFor="let item of reactiveMenu"
     class="list-group-item"
-    routerLink="template/dinamicos"
+    [routerLink]="[item.ruta]"
+    routerLinkActive="active"
   >
-    Dinámicos
-  </li>
-  <li
-    class="list-group-item"
-    routerLink="template/switches"
-  >
-    Switches
+    {{ item.texto }}
   </li>
 </ul>
