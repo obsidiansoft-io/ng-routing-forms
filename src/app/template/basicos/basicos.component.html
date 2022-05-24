@@ -12,7 +12,7 @@
           <input class="form-control"
             type="text"
             placeholder="Ingrese nombre"
-            ngModel
+            [ngModel]="personaInicial.nombre"
             name="nombre"
             required
             minlength="3"
@@ -33,7 +33,7 @@
           <input class="form-control"
             type="number"
             placeholder="Ingrese edad"
-            ngModel
+            [ngModel]="personaInicial.edad"
             name="edad"
             customMin
             [minimo]="0"
