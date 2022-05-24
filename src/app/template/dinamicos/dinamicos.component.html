@@ -1,1 +1,58 @@
-<p>dinamicos works!</p>
+<h2>Template Dinámico</h2>
+<hr/>
+
+<div class="row">
+  <div class="col">
+    <form (ngSubmit)="guardar()" #miFormulario="ngForm">
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">
+          Nombre
+        </label>
+        <div class="col-sm-9">
+          <input class="form-control"
+            type="text"
+            placeholder="Ingrese nombre"
+            [ngModel]="empleado.nombre"
+            name="nombre"
+            required
+            minlength="3"
+          />
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input [(ngModel)]="nuevoArchivo"
+          type="text"
+          class="form-control"
+          placeholder="Recipient's username"
+        />
+        <button
+          (click)="agregar()"
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+        >
+          Agregar
+        </button>
+      </div>
+      <div class="row mb-3" *ngFor="let doc of empleado.archivos; let i = index">
+        <div class="col-sm-9">
+          <input
+            [ngModel]="doc.nombre"
+            class="form-control"
+            name="archivo_{{ i }}"
+          />
+        </div>
+        <button class="btn btn-outline-primary col-sm-3" (click)="eliminar(i)">Eliminar</button>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit"
+            class="btn btn-primary float-end"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
