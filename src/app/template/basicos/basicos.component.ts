@@ -20,8 +20,12 @@ export class BasicosComponent implements OnInit {
       this.miFormulario?.controls['nombre']?.touched;
   }
 
-  guardar() {
-    console.log(this.miFormulario.form.value);
+  edadValida() {
+    return this.miFormulario?.controls['edad']?.errors?.['customMin'] &&
+      this.miFormulario?.controls['edad']?.touched;
   }
 
+  guardar() {
+    console.log(this.miFormulario);
+  }
 }
