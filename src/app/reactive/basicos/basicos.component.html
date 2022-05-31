@@ -1,1 +1,68 @@
-<p>basicos works!</p>
+<h2>Template Básico</h2>
+<hr/>
+
+<div class="row">
+  <div class="col">
+    <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">
+          Nombre
+        </label>
+        <div class="col-sm-9">
+          <input class="form-control"
+            type="text"
+            placeholder="Ingrese nombre"
+            name="nombre"
+            formControlName="nombre"
+          />
+          <span
+            class="form-text text-danger"
+            *ngIf="campoInvalido('nombre')"
+          >
+            Debe ser de al menos 3 letras
+          </span>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">
+          Edad
+        </label>
+        <div class="col-sm-9">
+          <input class="form-control"
+            type="number"
+            placeholder="Ingrese edad"
+            name="edad"
+            formControlName="edad"
+          />
+          <span
+            class="form-text text-danger"
+            *ngIf="campoInvalido('edad')"
+          >
+            Debe ser mayor a 0
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button
+            [disabled]="miFormulario.invalid"
+            type="submit"
+            class="btn btn-primary float-end"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <span>Valido</span>
+    <pre>Status: {{ miFormulario.status }}</pre>
+    <pre>Pristine: {{ miFormulario.pristine }}</pre>
+    <pre>Touched: {{ miFormulario.touched }}</pre>
+    <pre>Values: {{ miFormulario.value | json }}</pre>
+  </div>
+</div>
