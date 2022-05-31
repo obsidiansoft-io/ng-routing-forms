@@ -38,6 +38,10 @@ export class SidemenuComponent implements OnInit {
       texto: 'Switches',
       ruta: './reactive/switches'
     },
+    {
+      texto: 'Usuarios',
+      ruta: './reactive/users',
+    }
   ];
   constructor() { }
 
